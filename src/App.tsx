@@ -71,7 +71,7 @@ function generateBoard(): Cell[][] {
     board[x][y].breeze = true;
   });
 
-  // تعفن اطراف ومپوس‌ها
+  //  اطراف ومپوس‌ها
   [...getNeighbors(8, 2), ...getNeighbors(5, 5)].forEach(({ x, y }) => {
     board[x][y].stench = true;
   });
@@ -165,7 +165,7 @@ function App() {
     }
 
     if (current.gold) {
-      alert("🎉 طلا پیدا شد!");
+      alert("طلا پیدا شد");
       return;
     }
 
@@ -179,7 +179,6 @@ function App() {
       })
     );
 
-    // قانون: اگر breeze یا stench نبود، همه همسایه‌ها امن هستن
     if (!current.breeze && !current.stench) {
       getNeighbors(position.x, position.y).forEach(({ x, y }) => {
         newBoard[x][y].safe = true;
@@ -212,7 +211,7 @@ function App() {
     function moves() {
       // اگر گزینه امن نبود → برگشت به خانه قبلی
       if (safeMoves.length > 0) {
-        const next = safeMoves[0]; // فعلاً اولین گزینه رو می‌گیریم
+        const next = safeMoves[0]; 
         setTimeout(() => {
           setPosition({ x: next.x, y: next.y });
           setBoard(newBoard);
